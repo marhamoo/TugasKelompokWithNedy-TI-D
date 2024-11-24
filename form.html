@@ -8,13 +8,13 @@
         <div class="container">
             <h1>Workshop Registration</h1>
             <form>
-                <label for="txtname">Name:</label>
+                <label class="txtname">Name<span class="required">*</span></label>
                 <input type="text" 
                     id="txtname"
                     name="txtname" 
                 /><br/>
 
-                <label>Email:</label>
+                <label for="txtemail">Email<span class="required">*</span></label>
                 <input type="text" 
                     id="txtemail"
                     name="txtemail" 
@@ -39,10 +39,23 @@
                 <br/>
                 
                 <div class="buttons">
-                    <input type="reset" id="btncancel" name="btncancel" value="Cancel" />
+                    <input type="reset" id="btnreset" name="btnreset" value="reset" />
                     <input type="submit" id="btnsubmit" name="btnsubmit" value="Submit Form">
                 </div>
             </form>
         </div>
+        <script>
+          if (!name || !email) {
+            // Tampilkan pesan error jika input kosong
+            errorMessage.textContent = "Please fill in your name and email.";
+            errorMessage.style.display = "block";
+            successMessage.style.display = "none"; // Pastikan pesan sukses disembunyikan
+            } else {
+                // Tampilkan pesan sukses jika form valid
+                errorMessage.style.display = "none"; // Sembunyikan pesan error
+                successMessage.textContent = "Thank you for your interest in our workshop. We will send you a confirmation mail if your name is added to the guest list.";
+                successMessage.style.display = "block"; // Tampilkan pesan sukses
+                }
+        </script>
     </body>
 </html>
